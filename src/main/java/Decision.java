@@ -1,6 +1,6 @@
 public record Decision(
     boolean allowed,
-    long TokensRemaining,
+    long tokensRemaining,
     long nanosToWait
 ) {
     // Helper methods
