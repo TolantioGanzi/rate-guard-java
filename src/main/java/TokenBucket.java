@@ -1,3 +1,6 @@
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Thread-safe implementation of the Token Bucket algorithm.
  * <p>
@@ -52,5 +55,9 @@ public class TokenBucket {
             // Advance lastRefillNanos
             lastRefillNanos += newTokens * nanosPerToken;
         }
+    }
+    public synchronized long getTokens(long nowNanos) {
+        refill(nowNanos);
+        return tokens;
     }
 }
